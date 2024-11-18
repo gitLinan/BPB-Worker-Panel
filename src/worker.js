@@ -276,10 +276,10 @@ export default {
 
                     default:
                         return new Response('Not found', { status: 404 });
-                        // url.hostname = 'www.speedtest.net';
-                        // url.protocol = 'https:';
-                        // request = new Request(url, request);
-                        // return await fetch(request);
+                        url.hostname = 'www.baidu.com';
+                        url.protocol = 'https:';
+                        request = new Request(url, request);
+                        return await fetch(request);
                 }
             } else {
                 return url.pathname.startsWith('/tr') 
@@ -3161,7 +3161,7 @@ async function buildXrayDNS (proxySettings, outboundAddrs, domainToStaticIPs, is
     if (isWorkerLess) {
         const resolvedDOH = await resolveDNS('cloudflare-dns.com');
         const resolvedCloudflare = await resolveDNS('cloudflare.com');
-        // const resolvedCLDomain = await resolveDNS('www.speedtest.net.cdn.cloudflare.net');
+        const resolvedCLDomain = await resolveDNS('www.speedtest.net.cdn.cloudflare.net');
         const resolvedCFNS_1 = await resolveDNS('ben.ns.cloudflare.com');
         const resolvedCFNS_2 = await resolveDNS('lara.ns.cloudflare.com');
         dnsObject.hosts['cloudflare-dns.com'] = [
