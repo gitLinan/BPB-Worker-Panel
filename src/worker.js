@@ -7,7 +7,7 @@ import { SignJWT, jwtVerify } from 'jose';
 // How to generate your own UUID:
 // https://www.uuidgenerator.net/
 let userID = '89b3cbba-e6ac-485a-9481-976a0415eab9';
-let trojanPassword = `mobai-trojan`;
+let trojanPassword = `bpb-trojan`;
 
 // https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/
 const proxyIPs= ['bpb.yousef.isegaro.com'];
@@ -275,8 +275,8 @@ export default {
                         });
 
                     default:
-                        return new Response('Not found', { status: 404 });
-                        url.hostname = 'www.baidu.com';
+                        // return new Response('Not found', { status: 404 });
+                        url.hostname = 'www.speedtest.net';
                         url.protocol = 'https:';
                         request = new Request(url, request);
                         return await fetch(request);
@@ -1322,6 +1322,7 @@ async function getConfigAddresses(hostName, cleanIPs, enableIPv6) {
     const defaultIPv6 = enableIPv6 ? resolved.ipv6.map((ip) => `[${ip}]`) : []
     return [
         hostName,
+        'www.speedtest.net',
         ...resolved.ipv4,
         ...defaultIPv6,
         ...(cleanIPs ? cleanIPs.split(',') : [])
